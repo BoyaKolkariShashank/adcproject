@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="stars"></div> <!-- Stars container -->
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form method="POST">
+            <input type="url" name="long_url" placeholder="Enter your long URL" required>
+            <button type="submit">Shorten</button>
+        </form>
+        {% if short_url %}
+            <h2>Short URL: <a href="{{ url_for('redirect_to_url', short_url=short_url) }}">{{ request.url_root }}{{ short_url }}</a></h2>
+        {% endif %}
+    </div>
+
+<script>
+    // JavaScript to create and animate stars
+    const starCount = 100; // Number of stars
+    const starsContainer = document.querySelector('.stars');
+
+    function createStars() {
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            const size = Math.random() * 3 + 1; // Random size between 1 and 4
+            const left = Math.random() * 100; // Random horizontal position
+            const duration = Math.random() * 2 + 3; // Random duration between 3 and 5 seconds
+
+            star.className = 'star';
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = left + 'vw';
+            star.style.animationDuration = duration + 's'; // Set the animation duration
+
+            starsContainer.appendChild(star);
+        }
+    }
+
+    createStars();
+</script>
+
+</body>
+</html>

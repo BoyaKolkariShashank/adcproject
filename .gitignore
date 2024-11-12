@@ -1,0 +1,24 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+# Flask instance folder
+instance/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+
+# MacOS
+.DS_Store
